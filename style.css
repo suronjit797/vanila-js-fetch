@@ -1,18 +1,14 @@
-/* root */
-:root{
-    --primary-color: #f1f2f6;
-    --second-color: #eccc68;
-    --text-black: #192a56;
-
-}
 /* global */
 
 body{
-    background-color: var(--primary-color);
+    background-color: #f1f2f6;
     font-family: 'Poppins', sans-serif;
 }
 a,a:hover{
     text-decoration: none;
+}
+img{
+    max-width: 100%;
 }
 
 /* header */
@@ -25,4 +21,56 @@ a,a:hover{
     border-bottom-right-radius: 0px;
     border-top-right-radius: 0px;
     box-shadow: none !important;
+}
+
+/* result section  */
+#resultSection .card{
+    border-radius: 20px;
+    background: #f1f2f6;
+    box-shadow:  8px 8px 16px #d9dadd, -8px -8px 16px #ffffff;
+    border: transparent;
+}
+.brand_name{
+    cursor: pointer;
+}
+.show_more{
+    cursor: pointer;
+}
+
+/* showSingleData */
+.showSingleData{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: aqua;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    padding: 20px;
+}
+.showSingleData .card{
+    padding: 30px 20px;
+    overflow-y: scroll;
+    cursor: auto;
+    border-radius: 10px;
+    width: 50%;
+    margin: 0 auto;
+}
+/* .showSingleData img{
+    height: 400px;
+    width: 400px;
+} */
+
+
+@media (max-width: 768px) {
+    .showSingleData .card{
+        width: 80%;
+    }
+}
+@media (max-width: 576px) {
+    .showSingleData .card{
+        width: 100%;
+    }
 }
