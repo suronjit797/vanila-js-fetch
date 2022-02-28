@@ -59,7 +59,7 @@ img {
     width: 85%;
     margin: 0 auto;
     box-shadow: 11px 9px 15px 0px #4d4e50;
-    position: relative;
+    position: initial;
 }
 .showSingleData .card .close {
     position: absolute;

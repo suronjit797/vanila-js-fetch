@@ -9,6 +9,8 @@ document.getElementById("searchForm").addEventListener("submit", (event) => {
     event.preventDefault();
     // error div
     document.getElementById("errorBox").innerHTML = "";
+    // showmore
+    showMore.classList.add("d-none");
     let inputText = document.querySelector("#searchForm input");
     let inputTextValue = inputText.value.toLowerCase();
     if (inputTextValue) {
