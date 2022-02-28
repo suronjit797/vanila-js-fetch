@@ -1,45 +1,45 @@
 /* global */
-
-body{
+body {
     background-color: #f1f2f6;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     min-height: 100vh;
 }
-a,a:hover{
+a,
+a:hover {
     text-decoration: none;
 }
-img{
+img {
     max-width: 100%;
 }
 
 /* header */
-#searchForm button{
+#searchForm button {
     border-bottom-left-radius: 0px;
     border-top-left-radius: 0px;
     box-shadow: none !important;
 }
-#searchForm input{
+#searchForm input {
     border-bottom-right-radius: 0px;
     border-top-right-radius: 0px;
     box-shadow: none !important;
 }
 
 /* result section  */
-#resultSection .card{
+#resultSection .card {
     border-radius: 20px;
     background: #f1f2f6;
-    box-shadow:  8px 8px 16px #d9dadd, -8px -8px 16px #ffffff;
+    box-shadow: 8px 8px 16px #d9dadd, -8px -8px 16px #ffffff;
     border: transparent;
 }
-.brand_name{
+.brand_name {
     cursor: pointer;
 }
-.show_more{
+.show_more {
     cursor: pointer;
 }
 
 /* showSingleData */
-.showSingleData{
+.showSingleData {
     position: fixed;
     top: 0;
     left: 0;
@@ -51,7 +51,7 @@ img{
     place-content: center;
     padding: 20px;
 }
-.showSingleData .card{
+.showSingleData .card {
     padding: 30px 20px;
     overflow-y: scroll;
     cursor: auto;
@@ -61,7 +61,7 @@ img{
     box-shadow: 11px 9px 15px 0px #4d4e50;
     position: relative;
 }
-.showSingleData .card .close{
+.showSingleData .card .close {
     position: absolute;
     right: 10px;
     top: 10px;
@@ -74,43 +74,38 @@ img{
     line-height: 30px;
     cursor: pointer;
 }
-.showSingleData img{
+.showSingleData img {
     width: 70%;
     margin: auto;
 }
 
-.featureList{
+.featureList {
     list-style: none;
 }
 
-
-
-.featureList li{
+.featureList li {
     display: grid;
     grid-template-columns: 1fr 2fr;
     text-align: left;
     padding-left: 20px;
     padding: 5px 0;
 }
-.featureList li.featerHead{
+.featureList li.featerHead {
     font-weight: bold;
     padding-left: 0;
 }
 
-.featureList li:not(:last-child){
+.featureList li:not(:last-child) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.541);
 }
 
-
-
 @media (max-width: 768px) {
-    .showSingleData .card{
+    .showSingleData .card {
         width: 100%;
     }
-    
 }
 @media (max-width: 576px) {
-    .showSingleData img{
+    .showSingleData img {
         width: 100%;
     }
 }
