@@ -3,6 +3,7 @@
 body{
     background-color: #f1f2f6;
     font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
 }
 a,a:hover{
     text-decoration: none;
