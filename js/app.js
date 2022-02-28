@@ -126,45 +126,40 @@ const mobileExplore = id => {
         .then(data => showSingleData(data.data))
     // .catch(err=>console.log(err))
 }
+
+
 const showModal = document.querySelector('.showSingleData')
+// single data function 
 const showSingleData = data => {
     showModal.classList.remove('d-none')
+    showModal.innerHTML = ''
     let cardDiv = document.createElement('div')
     cardDiv.classList.add('card')
     cardDiv.innerHTML = `
-        <div class="text-center">
-            <img src="img/fabicone.png" class="card-img-top" alt="...">
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                card's content.</p>
-        </div>
+            <img src="${data.image}" class="card-img-top mb-3" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"> ${data.name} </h5>
+                <p>Brand: <span class="text-primary"> ${data.brand} </span></p>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                    the
+                    card's content.</p>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                </tr>
-            </tbody>
-        </table>
-    `
+                    <ul class="featureList p-0">
+                    <li class="featerHead"><span>kfdjaslk</span><span>kfdjaslk</span></li>
+                    <li><span>kfdjaslk</span><span>kfdjaslk</span></li>
+                    <li><span>kfdjaslk</span><span>kfdjaslk</span></li>
+                    <li><span>kfdjaslk</span><span>kfdjaslk</span></li>
+                </ul>
+            </div>
+
+
+        `
+    showModal.appendChild(cardDiv)
 
 
     console.log(data)
 }
+
+showModal.addEventListener('click', () => {
+    showModal.classList.add('d-none')
+})
