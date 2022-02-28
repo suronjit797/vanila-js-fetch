@@ -15,6 +15,7 @@ document.getElementById('searchForm').addEventListener('submit', (event) => {
     } else {
         errorResult('please fill input box to search something')
     }
+    inputText.value = ''
 })
 
 
@@ -131,24 +132,41 @@ const mobileExplore = id => {
 const showModal = document.querySelector('.showSingleData')
 // single data function 
 const showSingleData = data => {
+    document.body.style.overflowY = 'hidden'
     showModal.classList.remove('d-none')
     showModal.innerHTML = ''
     let cardDiv = document.createElement('div')
+    cardDiv.onclick = () => singleCard(event)
     cardDiv.classList.add('card')
     cardDiv.innerHTML = `
-            <img src="${data.image}" class="card-img-top mb-3" alt="...">
+            <div class="close fw-bold" onclick="closeModel()" >X</div>
+            <img src="${data.image ? data.image : ""}" class="card-img-top mb-3" alt="...">
             <div class="card-body">
-                <h5 class="card-title"> ${data.name} </h5>
-                <p>Brand: <span class="text-primary"> ${data.brand} </span></p>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                    the
-                    card's content.</p>
+                <h5 class="card-title"> ${data.name ? data.name : ""} </h5>
+                <p>Brand: <span class="text-primary"> ${data.brand ? data.brand : ""} </span></p>
+                    <p class="text-success">${data.releaseDate ? data.releaseDate : "<span class='text-danger'>No release date found</span>"}</p>
 
-                    <ul class="featureList p-0">
-                    <li class="featerHead"><span>kfdjaslk</span><span>kfdjaslk</span></li>
-                    <li><span>kfdjaslk</span><span>kfdjaslk</span></li>
-                    <li><span>kfdjaslk</span><span>kfdjaslk</span></li>
-                    <li><span>kfdjaslk</span><span>kfdjaslk</span></li>
+                <ul class="featureList p-0 py-3">                    
+                    <li class="featerHead"><span> Main Features: </span><span> </span></li>
+                    <li><span> Storage </span><span> ${data.mainFeatures.storage ? data.mainFeatures.storage : ""} </span></li>
+                    <li><span> Display size </span><span> ${data.mainFeatures.displaySize ? data.mainFeatures.displaySize : ""} </span></li>
+                    <li><span> Chip set </span><span> ${data.mainFeatures.chipSet ? data.mainFeatures.chipSet : ""} </span></li>
+                    <li><span> Memory </span><span> ${data.mainFeatures.memory ? data.mainFeatures.memory : ""} </span></li>
+                    <li>
+                        <span> Sensors </span>
+                        <span>
+                            ${(data.mainFeatures.sensors.map(item => "<span> " + item + " </span>"))}
+                        </span>
+                    </li>
+                </ul>
+                <ul class="featureList p-0 py-3">                    
+                    <li class="featerHead"><span> Main Features: </span><span> </span></li>
+                    <li><span> WLAN </span><span> ${data.others?.WLAN ? data.others.WLAN : '<span class="text-danger">no entry</span>'} </span></li>
+                    <li><span> Bluetooth </span><span> ${data.others?.Bluetooth ? data.others.Bluetooth : '<span class="text-danger">no entry</span>'} </span></li>
+                    <li><span> GPS </span><span> ${data.others?.GPS ? data.others.GPS : '<span class="text-danger">no entry</span>'} </span></li>
+                    <li><span> NFC </span><span> ${data.others?.NFC ? data.others.NFC : '<span class="text-danger">no entry</span>'} </span></li>
+                    <li><span> Radio </span><span> ${data.others?.Radio ? data.others.Radio : '<span class="text-danger">no entry</span>'} </span></li>
+                    <li><span> USB </span><span> ${data.others?.USB ? data.others.USB : '<span class="text-danger">no entry</span>'} </span></li>
                 </ul>
             </div>
 
@@ -160,6 +178,14 @@ const showSingleData = data => {
     console.log(data)
 }
 
-showModal.addEventListener('click', () => {
+let closeModel = () => {
+    document.body.style.overflowY = 'visible'
     showModal.classList.add('d-none')
-})
+}
+
+showModal.addEventListener('click', closeModel)
+
+// to stop bubbling
+let singleCard = (event) => {
+    event.stopPropagation()
+}

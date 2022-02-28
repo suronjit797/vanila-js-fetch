@@ -55,9 +55,23 @@ img{
     overflow-y: scroll;
     cursor: auto;
     border-radius: 10px;
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
     box-shadow: 11px 9px 15px 0px #4d4e50;
+    position: relative;
+}
+.showSingleData .card .close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    background-color: rgba(9, 9, 9, 0.473);
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
 }
 .showSingleData img{
     width: 70%;
@@ -67,13 +81,16 @@ img{
 .featureList{
     list-style: none;
 }
+
+
+
 .featureList li{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 2fr;
     text-align: left;
     padding-left: 20px;
+    padding: 5px 0;
 }
-
 .featureList li.featerHead{
     font-weight: bold;
     padding-left: 0;
