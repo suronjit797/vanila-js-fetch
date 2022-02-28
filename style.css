@@ -1,13 +1,28 @@
+/* root */
 :root{
     --primary-color: #f1f2f6;
     --second-color: #eccc68;
     --text-black: #192a56;
 
 }
+/* global */
 
 body{
     background-color: var(--primary-color);
     font-family: 'Poppins', sans-serif;
 }
+a,a:hover{
+    text-decoration: none;
+}
 
-
+/* header */
+#searchForm button{
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    box-shadow: none !important;
+}
+#searchForm input{
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    box-shadow: none !important;
+}
