@@ -3,22 +3,41 @@ let spinner = document.querySelector(".spinner-border");
 let showMore = document.querySelector(".show_more");
 
 let maxResult = 20;
-// onsubmit
 
+// global function
+// for innerHtml
+let changeInnerHtml = (id, value) => {
+    document.getElementById(id).innerHTML = value;
+}
+// error result
+const errorResult = (message) => {
+    spinner.classList.add("d-none");
+    let errorBox = document.getElementById("errorBox");
+    errorBox.innerHTML = "";
+    changeInnerHtml("resultSection", '')
+    let createDiv = document.createElement("div");
+    createDiv.classList.add("text-danger", "text-capitalize");
+    createDiv.innerText = message;
+    errorBox.appendChild(createDiv);
+};
+
+// onsubmit
 document.getElementById("searchForm").addEventListener("submit", (event) => {
     event.preventDefault();
     maxResult = 20;
     // result div
-    document.getElementById("resultSection").innerHTML = "";
+    changeInnerHtml('resultSection', '')
     // error div
-    document.getElementById("errorBox").innerHTML = "";
+    changeInnerHtml('errorBox', '')
     // show more
     showMore.classList.add("d-none");
+    // spinner
+    spinner.classList.remove("d-none");
+
     let inputText = document.querySelector("#searchForm input");
     let inputTextValue = inputText.value.toLowerCase();
     if (inputTextValue) {
         fetchMobileData(inputTextValue);
-        spinner.classList.remove("d-none");
     } else {
         errorResult("please fill input box to search something");
     }
@@ -39,7 +58,6 @@ const showMobileData = (data) => {
     // result div
     let resultSection = document.getElementById("resultSection");
     resultSection.innerHTML = "";
-
 
     //  search  data
     if (data.length > 0) {
@@ -68,7 +86,6 @@ const showMobileData = (data) => {
 
     if (data.length > maxResult) {
         showMore.classList.remove("d-none");
-
         // show more function
         showMore.addEventListener("click", () => {
             maxResult = data.length;
@@ -91,7 +108,6 @@ const showMobileData = (data) => {
                             <div/>
                         </div>
                     </div>`;
-
                     resultSection.appendChild(createDiv);
                 }
             });
@@ -102,32 +118,20 @@ const showMobileData = (data) => {
 // search by brand
 let searchBrand = (brandName) => {
     // result div
-    let resultSection = document.getElementById("resultSection");
-    resultSection.innerHTML = "";
+    changeInnerHtml('resultSection', '')
     // spinner
     spinner.classList.remove("d-none");
     document.querySelector("#searchForm input").value = brandName;
     fetchMobileData(brandName);
 };
 
-// show search result
-const errorResult = (message) => {
-    spinner.classList.add("d-none");
-    let errorBox = document.getElementById("errorBox");
-    errorBox.innerHTML = "";
-    document.getElementById("resultSection").innerHTML = "";
-    let createDiv = document.createElement("div");
-    createDiv.classList.add("text-danger", "text-capitalize");
-    createDiv.innerText = message;
-    errorBox.appendChild(createDiv);
-};
 
 // modal for single data
 const mobileExplore = (id) => {
     fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
         .then((res) => res.json())
-        .then((data) => showSingleData(data.data));
-    // .catch(err=>console.log(err))
+        .then((data) => showSingleData(data.data))
+        .catch(err => console.log(err))
 };
 
 const showModal = document.querySelector(".showSingleData");
@@ -174,8 +178,6 @@ const showSingleData = (data) => {
 
         `;
     showModal.appendChild(cardDiv);
-
-    console.log(data);
 };
 
 let closeModel = () => {
