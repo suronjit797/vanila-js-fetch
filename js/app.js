@@ -38,7 +38,7 @@ const showMobileData = (data) => {
     resultSection.innerHTML = "";
 
 
-    // if search has data
+    //  search  data
     if (data.length > 0) {
         data.forEach((phone, index) => {
             if (index < maxResult) {
@@ -51,7 +51,7 @@ const showMobileData = (data) => {
                         <h5 class="card-title"> ${phone.phone_name} </h5>
                         <p onclick="searchBrand('${phone.brand.toLowerCase()}')">brand: <span class="text-primary brand_name"> ${phone.brand} </span></p>
                         <div class="mt-auto">
-                            <button onclick="mobileExplore('${phone.slug}')" class="mt-auto btn btn-primary"> Explore More </button>
+                            <button onclick="mobileExplore('${phone.slug}')" class="mt-auto mb-3 btn btn-primary"> Explore More </button>
                         <div/>
                     </div>
                 </div>`;
