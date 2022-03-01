@@ -7,6 +7,7 @@ let maxResult = 20;
 
 document.getElementById("searchForm").addEventListener("submit", (event) => {
     event.preventDefault();
+    maxResult = 20;
     // result div
     document.getElementById("resultSection").innerHTML = "";
     // error div
