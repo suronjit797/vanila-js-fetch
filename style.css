@@ -45,20 +45,28 @@ img {
     left: 0;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0, 0, 0, 0.459);
+    /* background-color: rgba(0, 0, 0, 0.459); */
     cursor: pointer;
     display: grid;
     place-content: center;
     padding: 20px;
+    transition: .5s linear;
+
+    background: rgba( 0, 0, 0, 0.4 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6.5px );
+    -webkit-backdrop-filter: blur( 6.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .showSingleData .card {
+    transition: .5s linear;
     padding: 30px 20px;
     overflow-y: scroll;
     cursor: auto;
     border-radius: 10px;
     width: 85%;
     margin: 0 auto;
-    box-shadow: 11px 9px 15px 0px #4d4e50;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
     position: initial;
 }
 .showSingleData .card .close {
