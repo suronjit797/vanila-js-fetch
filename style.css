@@ -94,6 +94,9 @@ img {
     font-weight: bold;
     padding-left: 0;
 }
+.featureList li.featerHead >b {
+    grid-column: 1 / span 2
+}
 
 .featureList li:not(:last-child) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.541);

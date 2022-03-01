@@ -7,9 +7,11 @@ let maxResult = 20;
 
 document.getElementById("searchForm").addEventListener("submit", (event) => {
     event.preventDefault();
+    // result div
+    document.getElementById("resultSection").innerHTML = "";
     // error div
     document.getElementById("errorBox").innerHTML = "";
-    // showmore
+    // show more
     showMore.classList.add("d-none");
     let inputText = document.querySelector("#searchForm input");
     let inputTextValue = inputText.value.toLowerCase();
@@ -145,26 +147,26 @@ const showSingleData = (data) => {
                     <p class="text-success">${data.releaseDate ? data.releaseDate : "<span class='text-danger'>No release date found</span>"}</p>
 
                 <ul class="featureList p-0 py-3">                    
-                    <li class="featerHead"><span> Main Features: </span><span> </span></li>
-                    <li><span> Storage </span><span> ${data.mainFeatures.storage ? data.mainFeatures.storage : ""} </span></li>
-                    <li><span> Display size </span><span> ${data.mainFeatures.displaySize ? data.mainFeatures.displaySize : ""} </span></li>
-                    <li><span> Chip set </span><span> ${data.mainFeatures.chipSet ? data.mainFeatures.chipSet : ""} </span></li>
-                    <li><span> Memory </span><span> ${data.mainFeatures.memory ? data.mainFeatures.memory : ""} </span></li>
+                    <li class="featerHead"><b class="me-2"> Main Features: </b></li>
+                    <li><b class="me-2"> Storage </b><span> ${data.mainFeatures.storage ? data.mainFeatures.storage : ""} </span></li>
+                    <li><b class="me-2"> Display size </b><span> ${data.mainFeatures.displaySize ? data.mainFeatures.displaySize : ""} </span></li>
+                    <li><b class="me-2"> Chip set </b><span> ${data.mainFeatures.chipSet ? data.mainFeatures.chipSet : ""} </span></li>
+                    <li><b class="me-2"> Memory </b><span> ${data.mainFeatures.memory ? data.mainFeatures.memory : ""} </span></li>
                     <li>
-                        <span> Sensors </span>
+                        <b class="me-2" > Sensors </b>
                         <span>
-                            ${data.mainFeatures.sensors.map((item) => "<span> " + item + " </span>")}
+                            ${data.mainFeatures.sensors.map((item) => "<span> " + item + "</span>")}
                         </span>
                     </li>
                 </ul>
                 <ul class="featureList p-0 py-3">                    
-                    <li class="featerHead"><span> Main Features: </span><span> </span></li>
-                    <li><span> WLAN </span><span> ${data.others?.WLAN ? data.others.WLAN : '<span class="text-danger">no entry</span>'} </span></li>
-                    <li><span> Bluetooth </span><span> ${data.others?.Bluetooth ? data.others.Bluetooth : '<span class="text-danger">no entry</span>'} </span></li>
-                    <li><span> GPS </span><span> ${data.others?.GPS ? data.others.GPS : '<span class="text-danger">no entry</span>'} </span></li>
-                    <li><span> NFC </span><span> ${data.others?.NFC ? data.others.NFC : '<span class="text-danger">no entry</span>'} </span></li>
-                    <li><span> Radio </span><span> ${data.others?.Radio ? data.others.Radio : '<span class="text-danger">no entry</span>'} </span></li>
-                    <li><span> USB </span><span> ${data.others?.USB ? data.others.USB : '<span class="text-danger">no entry</span>'} </span></li>
+                    <li class="featerHead"><b> Others Features:  </b></li>
+                    <li><b class='me-2'> WLAN </b><span> ${data.others?.WLAN ? data.others.WLAN : '<span class="text-danger">No data found</span>'} </span></li>
+                    <li><b class='me-2'> Bluetooth </b><span> ${data.others?.Bluetooth ? data.others.Bluetooth : '<span class="text-danger">No data found</span>'} </span></li>
+                    <li><b class='me-2'> GPS </b><span> ${data.others?.GPS ? data.others.GPS : '<span class="text-danger">No data found</span>'} </span></li>
+                    <li><b class='me-2'> NFC </b><span> ${data.others?.NFC ? data.others.NFC : '<span class="text-danger">No data found</span>'} </span></li>
+                    <li><b class='me-2'> Radio </b><span> ${data.others?.Radio ? data.others.Radio : '<span class="text-danger">No data found</span>'} </span></li>
+                    <li><b class='me-2'> USB </b><span> ${data.others?.USB ? data.others.USB : '<span class="text-danger">No data found</span>'} </span></li>
                 </ul>
             </div>
 
