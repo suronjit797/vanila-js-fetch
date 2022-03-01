@@ -24,6 +24,12 @@ img {
     box-shadow: none !important;
 }
 
+
+button.btn.btn-primary:disabled{
+    cursor: no-drop ;
+    pointer-events: auto;
+}
+
 /* result section  */
 #resultSection .card {
     border-radius: 20px;

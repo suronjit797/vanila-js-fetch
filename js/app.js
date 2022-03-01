@@ -1,11 +1,24 @@
-// spinner
+// global dom
 let spinner = document.querySelector(".spinner-border");
 let showMore = document.querySelector(".show_more");
+let inputText = document.querySelector("#searchForm input");
 
 let maxResult = 20;
 
 // global function
 // for innerHtml
+
+
+inputText.addEventListener('keyup', () => {
+    if (inputText.value) {
+        document.querySelector("#searchForm button").disabled = false
+    } else {
+        document.querySelector("#searchForm button").disabled = true
+        
+    }
+})
+
+
 let changeInnerHtml = (id, value) => {
     document.getElementById(id).innerHTML = value;
 }
@@ -33,9 +46,12 @@ document.getElementById("searchForm").addEventListener("submit", (event) => {
     showMore.classList.add("d-none");
     // spinner
     spinner.classList.remove("d-none");
+    document.querySelector("#searchForm button").disabled = true
 
-    let inputText = document.querySelector("#searchForm input");
+
+
     let inputTextValue = inputText.value.toLowerCase();
+
     if (inputTextValue) {
         fetchMobileData(inputTextValue);
     } else {
@@ -119,6 +135,7 @@ const showMobileData = (data) => {
 let searchBrand = (brandName) => {
     // result div
     changeInnerHtml('resultSection', '')
+    document.querySelector("#searchForm button").disabled = false
     // spinner
     spinner.classList.remove("d-none");
     document.querySelector("#searchForm input").value = brandName;
